@@ -15,7 +15,7 @@ import {
   PermissionsAndroid,
 } from 'react-native';
 
-import Camera from 'react-native-camera'
+import Camera, { RNCamera } from 'react-native-camera';
 
 
 export default class QRCodeScanner extends Component {
@@ -191,6 +191,8 @@ export default class QRCodeScanner extends Component {
               style={[styles.camera, this.props.cameraStyle]} 
               onBarCodeRead={this._handleBarCodeRead.bind(this)}
               type={this.props.cameraType}
+              ref={cam => this.camera = cam}
+              barCodeTypes={[RNCamera.Constants.BarCodeType.qr]}
             >
               {this._renderCameraMarker()}
             </Camera>
@@ -198,7 +200,7 @@ export default class QRCodeScanner extends Component {
         )
       }
       return (
-        <Camera type={cameraType} style={[styles.camera, this.props.cameraStyle]} onBarCodeRead={this._handleBarCodeRead.bind(this)}>
+        <Camera type={cameraType}  ref={cam => this.camera = cam} style={[styles.camera, this.props.cameraStyle]} barCodeTypes={[RNCamera.Constants.BarCodeType.qr]} onBarCodeRead={this._handleBarCodeRead.bind(this)}>
           {this._renderCameraMarker()}
         </Camera>
       )

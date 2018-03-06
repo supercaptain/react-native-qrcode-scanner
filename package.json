@@ -28,7 +28,7 @@
     "prop-types": "^15.5.10"
   },
   "peerDependencies": {
-    "react-native-camera": "^0.10.0"
+    "react-native-camera": "1.0.1"
   },
   "homepage": "https://github.com/moaazsidat/react-native-qrcode-scanner#readme"
 }
